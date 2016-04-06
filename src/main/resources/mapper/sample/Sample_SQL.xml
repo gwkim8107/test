@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample">
+	
+	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT CountryCode, CountryName, ContinentCode
+			FROM eanextras.countries
+		]]>
+		<!-- where 절에 아래와 같은 형식으로 넣어줌 hashmap 의 key 값을 구문안에 대입 #{key}-->
+		<!-- where  CountryCode = #{CountryCode} -->
+	</select>
+	
+	<select id="sampleSQL" parameterType="hashmap" resultType="hashmap">
+		<!-- 아래와 같은 형식으로도 표현 가능 where 절에 hashmap 의 key 값을 #key# 로 대입 가능  -->
+			SELECT CountryCode, CountryName, ContinentCode
+			FROM eanextras.countries
+			where CountryCode = #CCD#
+		
+	</select>
+	
+</mapper>
