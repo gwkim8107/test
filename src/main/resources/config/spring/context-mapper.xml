@@ -4,7 +4,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-	<!-- 쿼리 파일은 "_SQL.xml" 로 생성 하셔야 됩니다. -->
+	<!-- 쿼리 파일은 명명 규칙 "_SQL.xml " 으로 생성 하셔야 됩니다. -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:/mapper/**/*_SQL.xml" />

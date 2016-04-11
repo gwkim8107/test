@@ -6,5 +6,5 @@ import java.util.Map;
 public interface SampleService {
 
 	List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception;
-
+	void insertSampleList(Map<String, Object> map) throws Exception;
 }

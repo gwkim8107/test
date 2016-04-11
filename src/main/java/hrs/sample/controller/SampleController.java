@@ -18,8 +18,9 @@ import hrs.sample.service.SampleService;
 // 현재 이 클래스가 비즈니스 로직을 담당하는 Controller 라는것을 명명
 @Controller
 public class SampleController {
+	// 이 클래스의 request, response 통신 관련 로그가 LoggerInterceptor 를 통해서 처리 되고 log를 출력합니다.
 	Logger log = Logger.getLogger(this.getClass());
-	
+		
 	//interface 인 sammpleService 객체를 사용하겠다는 의미, service package 에 만들어져 있음.
 	@Resource(name="sampleService")
 	private SampleService sampleService;
@@ -34,6 +35,7 @@ public class SampleController {
     	return mv;
     }
 	
+	// test 용으로 제작한 기능, session parameter map 에 들어있는 key, value 를 보기 위함이다.
 	@RequestMapping(value="/sample/testMapArgumentResolver.do")
 	public ModelAndView testMapArgumentResolver(CommandMap commandMap) throws Exception{
 	    ModelAndView mv = new ModelAndView("");
@@ -48,4 +50,26 @@ public class SampleController {
 	    }
 	    return mv;
 	}
+	//작성 화면 샘플 페이지
+	@RequestMapping(value="/sample/sampleWrite.do")
+	public ModelAndView openSampleWrite(CommandMap commandMap) throws Exception{
+	    ModelAndView mv = new ModelAndView("/sample/sampleWrite");
+	    return mv;
+	}
+	//db insert 로직
+	@RequestMapping(value="/sample/insertSampleList.do")
+	public ModelAndView insertSampleRow(CommandMap commandMap) throws Exception{
+		sampleService.insertSampleList(commandMap.getMap()); // 쿼리 작성 안되어 있음.
+	    ModelAndView mv = new ModelAndView("redirect:/sample/sampleList.do");
+	    return mv;
+	}
+	
+	@RequestMapping(value="/sample/updateBoard.do")
+	public ModelAndView updateSampleRow(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("/sample/updateSampleList");
+		//sampleService.updateSampleRow
+		
+		return mv;
+	}
+	
 }

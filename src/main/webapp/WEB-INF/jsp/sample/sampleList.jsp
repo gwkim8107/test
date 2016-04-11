@@ -5,10 +5,13 @@
 <title>Sample page</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" type="text/css" href="<c:url value='/sample/bootstrap-3.3.6-dist/css/bootstrap-theme.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/sample/bootstrap-3.3.6-dist/css/bootstrap.css'/>" />
 </head>
 <body>
 <h2>Test List</h2>
-<table style="border:1px solid #ccc">
+<div class="panel panel-default">
+<table style="border:1px solid #ccc" class="table">
 	<colgroup>
 		<col width="10%"/>
 		<col width="*"/>
@@ -42,5 +45,6 @@
 		
 	</tbody>
 </table>
+</div>
 </body>
 </html>
