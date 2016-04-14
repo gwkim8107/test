@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import hrs.sample.dao.SampleDAO;
-
+//Cotroller 에 등록한 sampleService 를 Service Bean 으로 등록한다.
 @Service("sampleService")
 public class SampleServiceImpl implements SampleService{
 	Logger log = Logger.getLogger(this.getClass());
@@ -18,8 +18,8 @@ public class SampleServiceImpl implements SampleService{
 	private SampleDAO sampleDAO;
 	
 	@Override
-	public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
-		return sampleDAO.selectBoardList(map);
+	public List<Map<String, Object>> selectBoardList(Map<String, Object> commandMap) throws Exception {
+		return sampleDAO.selectBoardList(commandMap);
 		
 	}
 
