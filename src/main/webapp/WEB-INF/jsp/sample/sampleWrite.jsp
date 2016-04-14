@@ -3,30 +3,49 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/jsp/sample/include_header.jsp" %>
+<link rel="stylesheet" type="text/css" href="<c:url value='/sample/bootstrap-3.3.6-dist/css/bootstrap.css'/>" />
 </head>
 <body>
     <form id="frm">
-        <table class="board_view">
+   		<div class="form-group">
+        <table>
             <colgroup>
-                <col width="15%">
+                <col width="10%">
                 <col width="*"/>
             </colgroup>
-            <caption>Sample</caption>
-            <tbody>
                 <tr>
-                    <th scope="row">제목</th>
-                    <td><input type="text" id="TITLE" name="TITLE" class="wdp_90"></input></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="view_text">
-                        <textarea rows="20" cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea>
+	                <th>ID</th>
+                    <td>
+                    	<input type="text" id="id" name="ID" class="form-control"></input>
                     </td>
                 </tr>
-            </tbody>
+	     
+                <tr>
+                	<th>CountryCode</th>
+                    <td>
+                        	<input type="text" class="form-control" title="CountryCode" id="CountryCode" name="CountryCode"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CountryName</th>
+                    <td>
+                        	<input type="text" class="form-control" title="CountryName" id="CountryName" name="CountryName"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ContinentCode</th>
+                    <td>
+                        	<input type="text" class="form-control" title="" id="" name="ContinentCode"></input>
+                    </td>
+                </tr>
         </table>
-         
-        <a href="#this" class="btn" id="write" >작성하기</a>
-        <a href="#this" class="btn" id="list" >목록으로</a>
+        </div>
+        <div class="form-group">
+        <div class = "col-sm-offset-1.5 col-sm-8">
+	        <button type="submit" class="btn btn-default"><a href="#this" class="btn" id="write" >작성하기</a></button>
+	        <button type="submit" class="btn btn-default"><a href="#this" class="btn" id="list" >목록으로</a></button>
+	    </div>
+        </div>
     </form>
      
     <%@ include file="/WEB-INF/jsp/sample/include_bottom.jsp" %>
