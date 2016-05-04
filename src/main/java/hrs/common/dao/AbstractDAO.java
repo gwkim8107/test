@@ -1,9 +1,11 @@
 package hrs.common.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codehaus.plexus.util.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -61,5 +63,24 @@ public class AbstractDAO {
 		return sqlSession.selectList(queryId,params);
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public Object selectPagingList(String queryId, Object params){
+		printQueryId(queryId);
+		Map<String, Object> map = (Map<String, Object>)params;
+		String pageIndex = (String)map.get("PAGE_INDEX");
+		String pageRow = (String)map.get("PAGE_ROW");
+		int nPageIndex = 0;
+		int nPageRow   = 20;
+		
+		if(StringUtils.isEmpty(pageIndex) == false){
+			nPageIndex = Integer.parseInt(pageIndex)-1;
+		}
+		if(StringUtils.isEmpty(pageRow) == false){
+			nPageRow    = Integer.parseInt(pageIndex);
+		}
+		map.put("START", (nPageIndex * nPageRow) + 1);
+		map.put("END", (nPageIndex * nPageRow) + nPageRow);
+		
+		return sqlSession.selectList(queryId, map);
+	}
 }

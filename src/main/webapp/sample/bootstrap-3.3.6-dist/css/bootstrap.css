@@ -247,6 +247,7 @@ th {
   }
   .label {
     border: 1px solid #000;
+    size: auto;
   }
   .table {
     border-collapse: collapse !important;

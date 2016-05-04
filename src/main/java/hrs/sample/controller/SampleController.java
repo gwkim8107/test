@@ -30,7 +30,7 @@ public class SampleController {
 	//ex> http://Hostname/root context/sample/sampleList.do 가 실행되면 아래 코드가 실행됩니다.
     public ModelAndView openSampleBoardList(Map<String,Object> commandMap) throws Exception{
 		List<Map<String,Object>> list = sampleService.selectBoardList(commandMap);	 //servive package의 serviceimpl 에서 구현한 로직을 수행  
-    	ModelAndView mv = new ModelAndView("/sample/sampleList"); 					// 화면에 보여줄 jsp 파일 지정 합니다. 
+    	ModelAndView mv = new ModelAndView("/sample/sampleList2"); 					// 화면에 보여줄 jsp 파일 지정 합니다. 
     	mv.addObject("list", list);	//지정한 jsp 에 결과 리스트를 전달한다.
     	return mv;
     }
