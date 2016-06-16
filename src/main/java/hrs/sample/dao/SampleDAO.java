@@ -16,4 +16,11 @@ public class SampleDAO extends AbstractDAO{
 		//Sample_SQL.xml 의 ( Name space : sample, query id : selectBoardList ) 결과를 리턴한다
 		return (List<Map<String, Object>>)selectList("sample.selectBoardList", map);  
 	}
+<<<<<<< HEAD
+=======
+	
+	public void insertSampleList(Map<String, Object> commandMap) {
+		insert("sample.insertSampleList", commandMap);
+	}
+>>>>>>> refs/heads/develop_bakup
 }
